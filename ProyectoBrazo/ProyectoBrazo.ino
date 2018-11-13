@@ -3,6 +3,9 @@
 #define botonEmergencia 2
 #define ledEmergencia 6
 #define ledOK 7
+#define alarma 5
+const int frecuencia = 440;
+
 boolean bandera = 0;
 
 String mensaje = "Todo en orden";
@@ -27,12 +30,12 @@ void setup() {
 
 void loop() {
 
-  if(bandera == 0){
+  if(bandera == 0){ // Código de ejecución normal
     digitalWrite(ledOK, HIGH);
     lcd.print(mensaje);
+    noTone(alarma);
     
-    
-  }else if(bandera == 1){
+  }else if(bandera == 1){ // Código de paro
     digitalWrite(ledOK, LOW);
     lcd.print(mensaje);
     paro();
@@ -53,9 +56,11 @@ void paro(){
   lcd.print(mensaje);  
   
   for(int i = 0; i < 5; i++){
+    tone(alarma, frecuencia);         // Enciende la alarma con la frecuencia marcada
     digitalWrite(ledEmergencia, HIGH);
-    delay(500);
+    delay(800);
     digitalWrite(ledEmergencia, LOW);
+    noTone(alarma);                   // Apaga la alarma  
     delay(500);
   }
 }
