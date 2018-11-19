@@ -1,10 +1,15 @@
 #include <Wire.h>               // Librería wire para comunicación de arduino con dispositivos I2C
 #include <LiquidCrystal_I2C.h>  // Librería para controlar el LCD con el dispositivo I2C
+#include <EEPROM.h>
+
 #define botonEmergencia 2
 #define ledEmergencia 6
 #define ledOK 7
 #define alarma 5
+
 const int frecuencia = 440;
+
+int pulsaciones = 0;
 
 boolean bandera = 0;
 
@@ -14,6 +19,8 @@ String mensaje = "Todo en orden";
 LiquidCrystal_I2C lcd(0x3F, 8, 2); //
 
 void setup() {
+  pulsaciones = EEPROM.read(0);
+  
   pinMode(ledOK, OUTPUT);
   pinMode(botonEmergencia, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(botonEmergencia), interrupcion, RISING);
@@ -36,11 +43,18 @@ void loop() {
     noTone(alarma);
     
   }else if(bandera == 1){ // Código de paro
+      pulsaciones++;
+      EEPROM.write(0,pulsaciones);
+      
+      Serial.println("Pulsaciones: ");
+      Serial.println(pulsaciones);
+      
     digitalWrite(ledOK, LOW);
     lcd.print(mensaje);
     paro();
     mensaje = "todo en orden";
     bandera = 0;
+    
   }
 }
 
