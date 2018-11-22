@@ -29,6 +29,10 @@ SoftwareSerial BT(TX, RX);
  <li type="square"> Pantalla LCD </li>
 </ul>
 
-## Diagramas de conexión
+## Librerias
 <ul> 
- <li type = ""> </li>
+  <li type = ""> LiquidCrystal </li>
+  <li type = ""> Servo </li>
+  <li type = ""> EEMPROM </li>
+  <li type = ""> SoftwareSerial </li>
+</ul>
