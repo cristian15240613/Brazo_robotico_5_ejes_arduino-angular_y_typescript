@@ -28,3 +28,5 @@ SoftwareSerial BT(TX, RX);
  <li type="square"> Diodo led </li>
  <li type="square"> Pantalla LCD </li>
 </ul>
+
+## Diagramas de conexión
