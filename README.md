@@ -1,9 +1,9 @@
 
-# Manejo de brazo robótico en arduino mediante conexión bluetooth e interfaz en processing.
+# Manejo de brazo robótico en arduino mediante conexión bluetooth e interfaz en android
 
 ## Introducción
 
-Brazo robótico controlado desde una interfaz gráfica desarrollada en Processing y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
+Brazo robótico controlado desde una interfaz gráfica desarrollada en Android Studio y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
 
 ## Codigo de ejemplo
 <h3> Servo motor </h3>
@@ -21,9 +21,10 @@ SoftwareSerial BT(TX, RX);
 ## Software y herramientas
 <ul>
  <li type="square"> IDE Arduino </li>
- <li type="square"> Processing </li>
+ <li type="square"> IDE Android Studio </li>
  <li type="square"> Servo motor </li>
  <li type="square"> Motor a pasos </li>
+ <li type="square"> Modulo HC-05 (Bluetooth) </li>
  <li type="square"> Buzzer </li>
  <li type="square"> Diodo led </li>
  <li type="square"> Pantalla LCD </li>
@@ -36,3 +37,4 @@ SoftwareSerial BT(TX, RX);
   <li type = ""> EEMPROM </li>
   <li type = ""> SoftwareSerial </li>
 </ul>
+
