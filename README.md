@@ -19,10 +19,11 @@ SoftwareSerial BT(TX, RX);
 
 
 ## Software y herramientas
-
- > IDE Arduino 
- > Servo motor 
- > Motor a pasos 
- > Buzzer 
- > Led 
- > Pantalla LCD
+<ul>
+ > <il> IDE Arduino </il>
+ > <il> Servo motor </il>
+ > <il> Motor a pasos </il>
+ > <il> Buzzer </il>
+ > <il> Led </il>
+ > <il> Pantalla LCD </il>
+</ul>
