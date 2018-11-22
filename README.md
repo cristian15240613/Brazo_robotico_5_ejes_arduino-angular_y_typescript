@@ -30,3 +30,5 @@ SoftwareSerial BT(TX, RX);
 </ul>
 
 ## Diagramas de conexión
+<ul> 
+ <li type = ""> </li>
