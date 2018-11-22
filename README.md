@@ -3,10 +3,10 @@
 
 ## Introducción
 
-> Brazo robótico controlado desde una interfaz gráfica desarrollada en Processing y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
+Brazo robótico controlado desde una interfaz gráfica desarrollada en Processing y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
 
 ## Codigo de ejemplo
-> <h3> Servo motor </h3>
+<h3> Servo motor </h3>
 grados[0] = movimientos.substring(0,2).toInt();
 <h3>  Motor a pasos </h3>
  digitalWrite(11, LOW);  <br>
@@ -19,7 +19,7 @@ SoftwareSerial BT(TX, RX);
 
 
 ## Software y herramientas
-> <ul>
+<ul>
  <li type="square"> IDE Arduino </li>
  <li type="square"> Processing </li>
  <li type="square"> Servo motor </li>
@@ -30,7 +30,7 @@ SoftwareSerial BT(TX, RX);
 </ul>
 
 ## Librerias
-> <ul> 
+<ul> 
   <li type = ""> LiquidCrystal </li>
   <li type = ""> Servo </li>
   <li type = ""> EEMPROM </li>
