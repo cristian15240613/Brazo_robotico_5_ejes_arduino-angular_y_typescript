@@ -5,7 +5,7 @@
 
 Brazo robótico controlado desde una interfaz gráfica desarrollada en Android Studio y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
 
-## Codigo de ejemplo
+## Codigo principal
 <h3> Servo motor </h3>
 grados[0] = movimientos.substring(0,2).toInt();
 <h3>  Motor a pasos </h3>
