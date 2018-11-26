@@ -3,6 +3,12 @@
 #include <LiquidCrystal_I2C.h>  // Librería para controlar el LCD con el dispositivo I2C
 #include <EEPROM.h>             // Librería para guardar en la memoria EEPROM de Arduino UNO
 #include <Servo.h>              // Librería para controlar servomotores
+#include <SoftwareSerial.h>     // Libreria para el BT
+
+// 050000000065000065000000000090
+
+// -- Blue
+SoftwareSerial BT(0,1);            // (RX, TX)
 
 // -- Botónes --
 #define BOTONEMERGENCIA 2       // Pin para el botón de emergencia
@@ -116,22 +122,31 @@ void loop() {
    if(movimientos.length()> 0){
 
 // Proceso para el movimiento de las articulaciónes y guardado de grados en la EEPROM
-
-     // -- Movimiento del motor a pasos
-     movimientoPasos(grados[0]);   EEPROM.write(0, grados[0]);
+/*  Función para mover los servomotores
+ *  
+ *  Partes:
+ *    1 - Hombro
+ *    2 - Codo
+ *    3 - Muñeca
+ *    4 - Garra
+ */
 
      // -- Movimientos de los servomotores
-     movimientoServo(1,grados[1]); EEPROM.write(1, grados[1]);
-     movimientoServo(2,grados[2]); EEPROM.write(2, grados[2]);
-     movimientoServo(3,grados[3]); EEPROM.write(3, grados[3]);
-     movimientoServo(4,grados[4]); EEPROM.write(4, grados[4]);
+     movimientoServo(4,grados[0]); EEPROM.write(0, grados[0]);    // Pinza
+     movimientoServo(3,grados[1]); EEPROM.write(1, grados[1]);    // Muñeca
+     movimientoServo(2,grados[2]); EEPROM.write(2, grados[2]);    // Codo
+     movimientoServo(1,grados[3]); EEPROM.write(3, grados[3]);    // Hombro
       
-     movimientoPasos(grados[5]);   EEPROM.write(5, grados[5]);
-     movimientoServo(1,grados[6]); EEPROM.write(6, grados[6]);    
-     movimientoServo(2,grados[7]); EEPROM.write(7, grados[7]);    
-     movimientoServo(3,grados[8]); EEPROM.write(8, grados[8]);    
-     movimientoServo(4,grados[9]); EEPROM.write(9, grados[9]);
+     // -- Movimiento del motor a pasos
+     movimientoPasos(grados[4]);   EEPROM.write(4, grados[4]);    // Base
      
+     movimientoServo(1,grados[5]); EEPROM.write(5, grados[5]);    // Hombro
+     movimientoServo(2,grados[6]); EEPROM.write(6, grados[6]);    // Codo
+     movimientoServo(3,grados[7]); EEPROM.write(7, grados[7]);    // Muñeca
+     
+     movimientoServo(4,grados[8]); EEPROM.write(8, grados[8]);    // Pinza
+     
+     movimientoPasos(grados[9]);   EEPROM.write(9, grados[9]);    // Base
    }
     
   }else if(bandera == 1){ // Código de paro
@@ -220,48 +235,48 @@ void asignaMovimientos(){
      *  Se parten y reparten de la siguiente manera:
      */
   
-    grados[0] = movimientos.substring(0,3).toInt();       // 1.- Movimiento 1 : Base
-    grados[1] = movimientos.substring(3,6).toInt();       // 2.- Movimiento 1 : Hombro
+    grados[0] = movimientos.substring(0,3).toInt();       // 1.- Movimiento 1 : Pinza
+    grados[1] = movimientos.substring(3,6).toInt();       // 2.- Movimiento 1 : Muñeca
     grados[2] = movimientos.substring(6,9).toInt();       // 3.- Movimiento 1 : Codo
-    grados[3] = movimientos.substring(9,12).toInt();      // 4.- Movimiento 1 : Muñeca
-    grados[4] = movimientos.substring(12,15).toInt();     // 5.- Movimiento 1 : Pinza
-    grados[5] = movimientos.substring(15,18).toInt();     // 6.- Movimiento 2 : Base
-    grados[6] = movimientos.substring(18,21).toInt();     // 7.- Movimiento 2 : Hombro
-    grados[7] = movimientos.substring(21,24).toInt();     // 8.- Movimiento 2 : Codo
-    grados[8] = movimientos.substring(24,27).toInt();     // 9.- Movimiento 2 : Muñeca
-    grados[9] = movimientos.substring(27,30).toInt();     // 10.- Movimiento 2 : Pinza
+    grados[3] = movimientos.substring(9,12).toInt();      // 4.- Movimiento 1 : Hombro
+    grados[4] = movimientos.substring(12,15).toInt();     // 5.- Movimiento 1 : Base
+    grados[5] = movimientos.substring(15,18).toInt();     // 6.- Movimiento 2 : Hombro
+    grados[6] = movimientos.substring(18,21).toInt();     // 7.- Movimiento 2 : Codo
+    grados[7] = movimientos.substring(21,24).toInt();     // 8.- Movimiento 2 : Muñeca
+    grados[8] = movimientos.substring(24,27).toInt();     // 9.- Movimiento 2 : Pinza
+    grados[9] = movimientos.substring(27,30).toInt();     // 10.- Movimiento 2 : Base
 }
 
 // Muestra de los grados por articulación
 void imprimeMovimientos(){
-    Serial.println("Movimiento 1 base: ");
+    Serial.println("Movimiento 1 pinza: ");
     Serial.println(grados[0]);
 
-    Serial.println("Movimiento 1 hombro: ");
+    Serial.println("Movimiento 1 nuñeca: ");
     Serial.println(grados[1]);
 
     Serial.println("Movimiento 1 codo: ");
     Serial.println(grados[2]);
 
-    Serial.println("Movimiento 1 muñeca: ");
+    Serial.println("Movimiento 1 hombro: ");
     Serial.println(grados[3]);
 
-    Serial.println("Movimiento 1 garra: ");
+    Serial.println("Movimiento 1 base: ");
     Serial.println(grados[4]);
     
-    Serial.println("Movimiento 2 base: ");
+    Serial.println("Movimiento 2 hombro: ");
     Serial.println(grados[5]);
 
-    Serial.println("Movimiento 2 hombro: ");
+    Serial.println("Movimiento 2 codo: ");
     Serial.println(grados[6]);
 
-    Serial.println("Movimiento 2 codo: ");
+    Serial.println("Movimiento 2 muñeca: ");
     Serial.println(grados[7]);
     
-    Serial.println("Movimiento 2 muñeca: ");
+    Serial.println("Movimiento 2 pinza: ");
     Serial.println(grados[8]);
 
-    Serial.println("Movimiento 2 garra: ");
+    Serial.println("Movimiento 2 base: ");
     Serial.println(grados[9]);
 }
 
