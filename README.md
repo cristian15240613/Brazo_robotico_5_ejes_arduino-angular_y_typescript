@@ -29,8 +29,8 @@ SoftwareSerial BT(TX, RX);
 
 ## Software y herramientas
 <ul>
- <li type="square"> IDE Arduino </li>
- <li type="square"> AppInventor </li>
+ <li type="square"> IDE Arduino: https://www.arduino.cc/ </li>
+ <li type="square"> AppInventor: http://appinventor.mit.edu/explore/ </li>
  <li type="square"> Servo motor </li>
  <li type="square"> Motor a pasos </li>
  <li type="square"> Modulo HC-05 (Bluetooth) </li>
@@ -48,6 +48,6 @@ SoftwareSerial BT(TX, RX);
 </ul>
 
 ## Contacto
-Chrisian: 15240613@itleon.edu.mx <br>
+Christian: 15240613@itleon.edu.mx <br>
 Sandra: mirelesa4@gmail.com <br>
 Jessica: jessi_dragon55@hotmail.com <br>
