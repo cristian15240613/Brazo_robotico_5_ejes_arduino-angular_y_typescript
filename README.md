@@ -2,9 +2,9 @@
 # Manejo de brazo robótico en arduino mediante conexión bluetooth e interfaz en AppInventor
 
 ## Desarrolladores
-Christian Alvarez
-Sandra Mireles
-Jessica Nicasio
+Christian Alvarez <br>
+Sandra Mireles <br>
+Jessica Nicasio <br>
 
 ## Introducción
 
@@ -48,6 +48,6 @@ SoftwareSerial BT(TX, RX);
 </ul>
 
 ## Contacto
-Chrisian: 15240613@itleon.edu.mx
-Sandra: mirelesa4@gmail.com
-Jessica: jessi_dragon55@hotmail.com
+Chrisian: 15240613@itleon.edu.mx <br>
+Sandra: mirelesa4@gmail.com <br>
+Jessica: jessi_dragon55@hotmail.com <br>
