@@ -47,8 +47,12 @@ Servo garraServo;     // Objeto servo para la garra del brazo
 #define MUNECA 8      // Pin del servo directo a la muñeca
 #define GARRA 9       // Pin del servo directo a la garra
 
+String cadenaSerial;
+char serialChar[41];
+
 String movimientos = "";  // Variable para guardar el mensaje obtenido del bluetooth
 int grados[10];           // Arreglo de grados por articulación
+
 
 void setup() {
   Serial.begin(9600);       // Inicializamos el serial
@@ -110,7 +114,15 @@ void loop() {
     if(bandera == 0){ // Código de ejecución normal
 
       while(Serial.available()){            // Cuando el serial recibe un mensaje
-        movimientos = Serial.readString();  // Los grados se guardan en la variable movimientos
+        movimientos = "";
+        cadenaSerial = Serial.readString();  // Los grados se guardan en la variable movimientos
+        cadenaSerial.toCharArray(serialChar, 41);
+        for(int i = 1; i<cadenaSerial.length();i++){
+          if(!isWhitespace(serialChar[i])){
+            movimientos += serialChar[i];
+          }
+        }
+        
         asignaMovimientos();                // Asignación de grados por articulación
         
         Serial.println("NUEVO PARAMETRO MEMORIA EEPROM: ");

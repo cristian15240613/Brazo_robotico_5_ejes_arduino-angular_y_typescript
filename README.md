@@ -1,9 +1,14 @@
 
-# Manejo de brazo robótico en arduino mediante conexión bluetooth e interfaz en android
+# Manejo de brazo robótico en arduino mediante conexión bluetooth e interfaz en AppInventor
+
+## Desarrolladores
+Christian Alvarez <br>
+Sandra Mireles <br>
+Jessica Nicasio <br>
 
 ## Introducción
 
-Brazo robótico controlado desde una interfaz gráfica desarrollada en Android Studio y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
+Brazo robótico controlado desde una interfaz gráfica desarrollada en AppInventor y conectado mediante un dispositivo bluetooth; es capaz de mover cada una de las articulaciones de forma independiente o en conjunto para tomar y mover objetos cumpliendo su ciclo de movimientos aún después de una caía de corriente eléctrica.
 
 ## Codigo principal
 <h3> Servo motor </h3>
@@ -16,12 +21,16 @@ grados[0] = movimientos.substring(0,2).toInt();
 <h3>  Bluetooth </h3>
 SoftwareSerial BT(TX, RX);  
 
-
+## Sistema operativo
+<ul>
+ <li type="square"> Linux Elementary Locky </li>
+ <li type="square"> K Ubuntu 18.0 </li>
+</ul>
 
 ## Software y herramientas
 <ul>
- <li type="square"> IDE Arduino </li>
- <li type="square"> IDE Android Studio </li>
+ <li type="square"> IDE Arduino: https://www.arduino.cc/ </li>
+ <li type="square"> AppInventor: http://appinventor.mit.edu/explore/ </li>
  <li type="square"> Servo motor </li>
  <li type="square"> Motor a pasos </li>
  <li type="square"> Modulo HC-05 (Bluetooth) </li>
@@ -38,3 +47,7 @@ SoftwareSerial BT(TX, RX);
   <li type = ""> SoftwareSerial </li>
 </ul>
 
+## Contacto
+Christian: 15240613@itleon.edu.mx <br>
+Sandra: mirelesa4@gmail.com <br>
+Jessica: jessi_dragon55@hotmail.com <br>
