@@ -234,7 +234,7 @@ void asignaMovimientos(){
      *  El string de los grados (obtenido por serial) se parte de 3 caracteres en 3
      *  Se parten y reparten de la siguiente manera:
      */
-  
+  // (050 000 000 065 000 065 000 000 000 090)
     grados[0] = movimientos.substring(0,3).toInt();       // 1.- Movimiento 1 : Pinza
     grados[1] = movimientos.substring(3,6).toInt();       // 2.- Movimiento 1 : Muñeca
     grados[2] = movimientos.substring(6,9).toInt();       // 3.- Movimiento 1 : Codo
@@ -252,7 +252,7 @@ void imprimeMovimientos(){
     Serial.println("Movimiento 1 pinza: ");
     Serial.println(grados[0]);
 
-    Serial.println("Movimiento 1 nuñeca: ");
+    Serial.println("Movimiento 1 muñeca: ");
     Serial.println(grados[1]);
 
     Serial.println("Movimiento 1 codo: ");
